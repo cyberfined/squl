@@ -1,0 +1,53 @@
+name:          squl
+version:       0.1.0.0
+synopsis:      Simple SQL query builder
+description:   Simple SQL query builder
+homepage:      https://github.com/cyberfined/squl
+bug-reports:   https://github.com/cyberfined/squl/issues
+author:        cyberfined
+maintainer:    cyberfined@protonmail.com
+copyright:     Copyright (c) cyberfined
+license:       OtherLicense
+license-file:  LICENSE
+category:      Misc
+build-type:    Simple
+cabal-version: >= 1.12
+extra-source-files:
+    LICENSE
+    README.md
+
+source-repository head
+  type:     git
+  location: https://github.com/cyberfined/squl
+
+library
+  exposed-modules:
+      Database.Squl
+    , Database.Squl.Builder
+    , Database.Squl.Builder.Strict
+    , Database.Squl.Builder.Lazy
+  other-modules:
+      Database.Squl.Types
+    , Database.Squl.Builder.Common
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -O2
+  default-extensions:
+      GeneralizedNewtypeDeriving
+    , LambdaCase
+    , OverloadedStrings
+  build-depends:
+      base >= 4.7 && < 5
+    , bytestring >= 0.10 && < 1
+  default-language: Haskell2010
+
+executable squl
+  main-is: Main.hs
+  hs-source-dirs:
+      main
+  ghc-options: -Wall -O2
+  build-depends:
+      base >= 4.7 && < 5
+    , bytestring >= 0.10 && < 1
+    , squl
+  default-language: Haskell2010
